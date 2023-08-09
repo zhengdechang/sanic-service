@@ -7,19 +7,31 @@
 ```
 .
 ├── app
-│   ├── __init__.py
 │   ├── main.py
 │   ├── models
-│   │   ├── __init__.py
-│   │   └── example_model.py
-│   └── views
-│       ├── __init__.py
-│       └── example_view.py
+│   │   ├── models.py
+│   │   └── engine.py
+│   └── apis
+│   │   ├──sanic_service_apis.py
+│   │   └──views
+│   │      └── user
+│   │          ├── __init__.py
+│   │          ├── auth.py
+│   │          └── info.py
+│   ├── models
+│   │   ├── models.py
+│   │   └── engine.py
+│   ├── utils
+│   │   ├── utils.py
+│   │   └── language_json.py
 ├── tests
 │   ├── __init__.py
 │   └── test_example.py
+├── config.py
 ├── requirements.txt
+├── requirements.in
 ├── .gitignore
+├── LICENSE
 └── README.md
 ```
 
@@ -47,7 +59,25 @@ pip-compile requirements.in
 pip install -r requirements.txt
 ```
 
-4. 运行项目：
+
+4. postgresql(wsl的ubuntu虚拟机)
+```bash
+#安装数据库
+sudo apt install postgresql postgresql-contrib
+#进入数据库
+sudo -u  postgres  psql
+#创建用户
+CREATE USER sanic_service WITH PASSWORD 'password';
+#创建数据库
+CREATE DATABASE sanic_service;
+#将数据库授权给用户
+ALTER USER sanic_service WITH SUPERUSER;
+GRANT ALL PRIVILEGES ON DATABASE sanic_service TO sanic_service;
+
+# 注意：这里的数据库信息需要与engine.py中的信息对应
+```
+
+5. 运行项目：
 
 ```bash
 python3 main.py

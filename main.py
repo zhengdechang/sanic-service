@@ -9,8 +9,8 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy import select
 
 from apis.sanic_service_apis import sanic_service_apis
-from db_model.engine import async_engine
-from db_model.models import meta, User
+from model.engine import async_engine
+from model.models import meta, User
 from config import ProductionConfig
 from utils.utils import error_return, protect_if_authenticated, is_revoked
 

@@ -3,7 +3,7 @@ import logging
 from sqlalchemy import select
 
 from utils.utils import error_return, success_return, check_keys
-from db_model.models import User
+from model.models import User
 
 userAuth = Blueprint("userAuth")
 

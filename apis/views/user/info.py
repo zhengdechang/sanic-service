@@ -3,7 +3,7 @@ from sanic import Blueprint
 from sanic.views import HTTPMethodView
 from sqlalchemy import select, update
 
-from db_model.models import User
+from model.models import User
 from utils.utils import check_keys, success_return, error_return
 
 userInfo = Blueprint("userInfo")
