@@ -5,25 +5,23 @@
 ### 项目结构
 
 ```
-.
-├── app
-│   ├── main.py
-│   ├── models
-│   │   ├── models.py
-│   │   └── engine.py
-│   └── apis
-│   │   ├──sanic_service_apis.py
-│   │   └──views
-│   │      └── user
-│   │          ├── __init__.py
-│   │          ├── auth.py
-│   │          └── info.py
-│   ├── models
-│   │   ├── models.py
-│   │   └── engine.py
-│   ├── utils
-│   │   ├── utils.py
-│   │   └── language_json.py
+├── main.py
+├── models
+│   ├── models.py
+│   └── engine.py
+├── apis
+│   ├──sanic_service_apis.py
+│   └──views
+│      └── user
+│          ├── __init__.py
+│          ├── auth.py
+│          └── info.py
+├── models
+│   ├── models.py
+│   └── engine.py
+├── utils
+│   ├── utils.py
+│   └── language_json.py
 ├── tests
 │   ├── __init__.py
 │   └── test_example.py
