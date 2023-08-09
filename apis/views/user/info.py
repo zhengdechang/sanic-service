@@ -15,6 +15,18 @@ class UserInfo(HTTPMethodView):
     """
 
     async def post(self, request):
+        """
+        Asynchronously handles a POST request.
+
+        Args:
+            request (Request): The request object.
+
+        Returns:
+            Response: The response object.
+
+        Raises:
+            Exception: If there is an error in modifying the user information.
+        """
         content = request.json
         if not check_keys(content=content,
                           required_keys=["name", "old_pass", "new_pass"]):

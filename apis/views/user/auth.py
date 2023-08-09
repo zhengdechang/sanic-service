@@ -1,3 +1,8 @@
+'''
+Description: 
+Author: Devin
+Date: 2023-08-09 19:48:59
+'''
 from sanic import Blueprint
 import logging
 from sqlalchemy import select
@@ -10,6 +15,15 @@ userAuth = Blueprint("userAuth")
 
 @userAuth.post("/login")
 async def login(request):
+    """
+    Decorator for the login API endpoint.
+    
+    Parameters:
+    - request: The request object.
+    
+    Returns:
+    - The response object with the login result.
+    """
     content = request.json
     if not check_keys(content, required_keys=["username", "password"]):
         return error_return(message="Wrong credential")
@@ -42,6 +56,15 @@ async def login(request):
 
 @userAuth.post("/register")
 async def register(request):
+    """
+    Register a new user.
+
+    Parameters:
+        request (Request): The HTTP request object.
+
+    Returns:
+        A JSON response indicating the success or failure of the registration process.
+    """
     content = request.json
     if not check_keys(content, required_keys=["username", "password"]):
         return error_return(message="Wrong information")
@@ -72,6 +95,15 @@ async def register(request):
 
 @userAuth.get("/logout")
 async def logout(request):
+    """
+    Logout the user by invalidating the token.
+
+    Args:
+        request (Request): The request object containing the token in the headers.
+
+    Returns:
+        Response: A success response indicating that the user has been logged out successfully.
+    """
     token = request.headers.get("Authorization").split(" ")[1]
     # 将令牌添加到黑名单中，使其失效
     request.app.config.SANIC_JWT_BLACKLIST.add(token)

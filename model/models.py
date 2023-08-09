@@ -29,7 +29,25 @@ class User(Base):
         self.set_password(password)
 
     def set_password(self, password):
+        """
+        Set the password for the user.
+
+        Args:
+            password (str): The password to set.
+
+        Returns:
+            None
+        """
         self.pw_hash = generate_password_hash(password)
 
     def check_password(self, password):
+        """
+        Check if the given password matches the stored password hash.
+
+        Args:
+            password (str): The password to be checked.
+
+        Returns:
+            bool: True if the password matches the stored password hash, False otherwise.
+        """
         return check_password_hash(self.pw_hash, password)

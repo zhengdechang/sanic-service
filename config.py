@@ -2,6 +2,9 @@ from sanic.config import Config
 
 
 class BaseConfig(Config):
+    """
+    Base configuration class.
+    """
     DEBUG = False
     TESTING = False
     JWT_SECRET = 'sanic_service'
@@ -14,13 +17,22 @@ class BaseConfig(Config):
 
 
 class ProductionConfig(BaseConfig):
+    """
+    Production configuration class.
+    """
     ENV = 'production'
 
 
 class DevelopmentConfig(BaseConfig):
+    """
+    Development configuration class.
+    """
     ENV = 'development'
     DEBUG = True
 
 
 class TestingConfig(BaseConfig):
+    """
+    Testing configuration class.
+    """
     TESTING = True

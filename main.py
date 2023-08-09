@@ -26,6 +26,23 @@ logging.basicConfig(
 
 
 def create_app(config=None):
+    """
+    Creates and configures a Sanic application.
+
+    Parameters:
+        config (Optional[Dict[str, Any]]): A dictionary containing configuration options for the application. Defaults to None.
+
+    Returns:
+        Sanic: The configured Sanic application.
+
+    Middleware:
+        - inject_session: Middleware that injects a database session into the request context.
+        - close_session: Middleware that closes the database session after the response is sent.
+
+    Listeners:
+        - init_db: Listener that initializes the database and creates necessary tables if they don't exist.
+
+    """
     backend_app = Sanic("sanic_service", config=config)
     backend_app.config.SECRET = os.urandom(32)
     backend_app.blueprint(sanic_service_apis)
@@ -37,6 +54,15 @@ def create_app(config=None):
     @backend_app.middleware("request")
     @protect_if_authenticated(config.JWT_WHITE_LIST)
     async def inject_session(request):
+        """
+        Middleware function that injects a session into the request's context.
+
+        Args:
+            request: The request object.
+
+        Returns:
+            None
+        """
         is_revoked(request, config.JWT_WHITE_LIST)
 
         request.ctx.session = sessionmaker(bind=async_engine,
@@ -47,12 +73,28 @@ def create_app(config=None):
 
     @backend_app.middleware("response")
     async def close_session(request, response):
+        """
+        Middleware function that is called after a response is sent.
+
+        :param request: The incoming request.
+        :param response: The outgoing response.
+        :return: None
+        """
         if hasattr(request.ctx, "session_ctx_token"):
             _base_model_session_ctx.reset(request.ctx.session_ctx_token)
             await request.ctx.session.close()
 
     @backend_app.listener("after_server_start")
     async def init_db(app):
+        """
+        Initializes the database after the server starts.
+
+        Parameters:
+        - app: The application instance.
+
+        Returns:
+        None
+        """
         async with async_engine.begin() as conn:
             await conn.run_sync(meta.create_all)
 
@@ -73,6 +115,12 @@ def create_app(config=None):
 
 
 def generate_app_fun(config=None):
+    """
+    Generate an application function.
+
+    :param config: Configuration options for creating the app (default: None)
+    :return: The generated app
+    """
     generate_app = create_app(config)
 
     # init jwt authorized
@@ -92,6 +140,19 @@ def generate_app_fun(config=None):
     # # intercept exceptions
     @generate_app.exception(exceptions.SanicJWTException)
     async def sanic_jwt_exception(request, exception):
+        """
+        Handle SanicJWTException and return an error response.
+
+        Args:
+            request: The Sanic request object.
+            exception: The SanicJWTException object.
+
+        Returns:
+            An error response with the message and code from the exception.
+
+        Raises:
+            None.
+        """
         return error_return(message=exception.args[0],
                             code=exception.status_code)
 
