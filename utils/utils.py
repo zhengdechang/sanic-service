@@ -2,7 +2,7 @@ from sanic.response import json
 import logging
 from datetime import datetime, timezone, timedelta
 from sanic_jwt import protected, exceptions
-from language_json import LANGUAGE_DATA
+from utils.language_json import LANGUAGE_DATA
 
 
 def error_return(message, code="0001"):
@@ -16,8 +16,10 @@ def success_return(data=None, message=""):
         "msg": message
     })
 
+
 def get_current_time(time_delta=8):
     return datetime.now(tz=timezone(timedelta(hours=time_delta)))
+
 
 # protected the routes to be authenticated
 def protect_if_authenticated(JWT_WHITE_LIST=[]):
@@ -70,6 +72,7 @@ def get_language_data(message, language):
         message_language = language_data[language][message]
 
     return message_language
+
 
 def check_keys(content, required_keys: list):
     for key in required_keys:
