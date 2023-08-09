@@ -28,13 +28,13 @@
 1. 克隆这个仓库到你的本地机器上：
 
 ```bash
-git clone https://github.com/zhengdechang/sanic-serve.git
+git clone https://github.com/zhengdechang/sanic-service.git
 ```
 
 2. 进入到项目目录：
 
 ```bash
-cd sanic-serve
+cd sanic-service
 ```
 
 3. 解析并安装项目依赖：
