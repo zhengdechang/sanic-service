@@ -28,6 +28,13 @@
 ├── utils
 │   ├── utils.py
 │   └── language_json.py
+├── react-frontend
+│   ├── node_modules
+│   ├── public
+│   ├── src
+│   ├── package.json
+│   ├── package-lock.json
+│   └── README.md
 ├── tests
 │   ├── __init__.py
 │   └── test_example.py
@@ -36,14 +43,8 @@
 ├── requirements.in
 ├── .gitignore
 ├── LICENSE
-├── README.md
-└── react-frontend
-    ├── node_modules
-    ├── public
-    ├── src
-    ├── package.json
-    ├── package-lock.json
-    └── README.md
+└── README.md
+
 ```
 
 ### 安装和运行
