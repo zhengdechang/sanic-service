@@ -1,0 +1,7 @@
+node_modules
+template
+packages/test
+temp
+entry-wc.js
+dist
+__testfixtures__

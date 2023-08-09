@@ -1,0 +1,8 @@
+{
+  "resolveGlobalModules": false,
+  "prettierPath": "./node_modules/prettier",
+  "eslintIntegration": true,
+  "singleQuote": true,
+  "semi": false,
+  "jsxBracketSameLine": false
+}
