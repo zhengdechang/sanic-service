@@ -32,7 +32,7 @@ const Login = () => {
             <h3 className="title">欢迎使用</h3>
           </div>
           <div className="jt-divider">
-            <div className="jt-divider-text">React Frontend</div>
+            <div className="jt-divider-text">React</div>
           </div>
           <Form
             name="basic"

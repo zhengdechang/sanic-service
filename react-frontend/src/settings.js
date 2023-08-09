@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'React frontend',
+  title: 'React',
   BASE_URL: '127.0.0.1',
   tagsView: true,
   /**

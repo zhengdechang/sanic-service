@@ -3,17 +3,11 @@ import BasicLayout from '@/layouts/BasicLayout'
 import BlankLayout from '@/layouts/BlankLayout'
 
 const routerConfig = [
-  { path: '/dashboard', name: '信息列表', component: 'dashboard' },
+  { path: '/dashboard', name: '列表', component: 'dashboard' },
   {
     path: '/system', redirect: '/system/settings', exact: true,
     childRoutes: [
       { path: '/system/settings', name: '设置', component: 'settings' },
-    ]
-  },
-  {
-    path: '/image', redirect: '/image/viewer', exact: true,
-    childRoutes: [
-      { path: '/image/viewer', name: '设置', component: 'viewer' },
     ]
   },
   /* 在上方填写你的页面路由配置 **/

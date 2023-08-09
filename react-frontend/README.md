@@ -24,7 +24,7 @@ yarn build or npm run build
 
 ## 文件目录
 
-```bash
+```
 ├─config                        # config file
 | ├─webpack.common.config.js    # webpack common config
 | ├─webpack.dev.config.js       # webpack dev config

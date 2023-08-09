@@ -29,7 +29,7 @@
 │   ├── utils.py
 │   └── language_json.py
 ├── react-frontend
-│   ├── node_modules
+│   ├── config
 │   ├── public
 │   ├── src
 │   ├── package.json

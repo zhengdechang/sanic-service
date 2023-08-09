@@ -1,6 +1,6 @@
 import defaultSettings from '@/settings'
 
-const title = defaultSettings.title || 'React frontend'
+const title = defaultSettings.title || 'React'
 
 export default function getPageTitle(pageTitle, t) {
   if (pageTitle) {

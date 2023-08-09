@@ -1,5 +1,4 @@
 import React from 'react'
-import { connect } from 'react-redux'
 
 import { Layout, Icon, Dropdown, Menu, Row, Col } from 'antd'
 import { Link } from 'react-router-dom'

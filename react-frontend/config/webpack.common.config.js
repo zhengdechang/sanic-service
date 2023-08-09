@@ -16,7 +16,7 @@ const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 const HappyPack = require('happypack') // 多线程打包工具
 const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length })
 
-const name = defaultSettings.title || '扬奇医学影像' // page title
+const name = defaultSettings.title || 'React' // page title
 module.exports = {
   entry: {
     app: './src/main.js',
