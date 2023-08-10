@@ -1,10 +1,8 @@
-## Python Sanic
+## Python Sanic with React Frontend
 
-这个项目是使用Python的Sanic框架创建的。Sanic是一个Python 3.6+ web服务器和web框架，它允许快速写代码，同时能处理请求速度非常快。它允许使用异步请求处理，这意味着你可以使用Python的`async`/`await`语法处理请求，这使得它非常适合实时web应用。
+这个项目是使用Python的Sanic框架创建的后端，以及使用React, Antd, Zustand创建的前端。
 
 ### 项目结构
-
-> 代码注释由Codeium生成，如有错误请指正
 
 ```
 ├── main.py
@@ -32,10 +30,19 @@
 ├── requirements.in
 ├── .gitignore
 ├── LICENSE
-└── README.md
+├── README.md
+└── react-frontend
+    ├── node_modules
+    ├── public
+    ├── src
+    ├── package.json
+    ├── package-lock.json
+    └── README.md
 ```
 
 ### 安装和运行
+
+#### 后端
 
 1. 克隆这个仓库到你的本地机器上：
 
@@ -53,14 +60,11 @@ cd sanic-service
 
 ```bash
 pip-compile requirements.in
-```
-
-```bash
 pip install -r requirements.txt
 ```
 
+4. 安装并配置postgresql（在WSL的Ubuntu虚拟机中）：
 
-4. postgresql(wsl的ubuntu虚拟机)
 ```bash
 #安装数据库
 sudo apt install postgresql postgresql-contrib
@@ -83,6 +87,28 @@ GRANT ALL PRIVILEGES ON DATABASE sanic_service TO sanic_service;
 python3 main.py
 ```
 
+#### 前端
+
+1. 进入到前端项目目录：
+
+```bash
+cd react-frontend
+```
+
+2. 安装项目依赖：
+
+```bash
+npm install
+```
+
+3. 运行项目：
+
+```bash
+npm run start
+```
+
+现在，你的前端项目应该在`http://localhost:3000`上运行，而你的后端项目应该在`http://localhost:8000`上运行。
+
 ### 测试(TODO)
 
 为了运行测试，请执行以下命令：
@@ -104,6 +130,6 @@ python3 -m unittest
 
 ### 联系信息
 
-如果你有任何问题或者建议，请通过email联系我们：zhengdevin10@gmail.com
+如果你有任何问题或者建议，请通过email联系我：zhengdevin10@gmail.com
 
-感谢你对我们项目的关注！
+感谢你对项目的关注！
