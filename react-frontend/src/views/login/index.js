@@ -19,6 +19,7 @@ const Login = () => {
 
       let redirect = location.search.replace('?redirect=', '') //router redirect
       history.push(redirect ?? '/')
+      message.success('登录成功')
     })
   }
 
@@ -32,7 +33,7 @@ const Login = () => {
             <h3 className="title">欢迎使用</h3>
           </div>
           <div className="jt-divider">
-            <div className="jt-divider-text">React</div>
+            <div className="jt-divider-text">Sanic React</div>
           </div>
           <Form
             name="basic"

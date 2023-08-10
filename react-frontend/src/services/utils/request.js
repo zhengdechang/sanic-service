@@ -35,6 +35,7 @@ function Request(baseURL) {
       if (token) {
         config.headers['Authorization'] = `Bearer ${token}`
       }
+      config.headers['Accept-Language'] = localStorage.getItem('language') ?? 'zh'
       return config
     },
     (error) => {
@@ -50,9 +51,10 @@ function Request(baseURL) {
     (response) => {
       setLoading(false)
       if (response.status === 200) {
-        if (response.data.code === '0000') {
+        if (response.data.code === '200') {
           return Promise.resolve(response.data)
         } else {
+          message.error(response.data.msg)
           return Promise.reject(response.data.msg)
         }
       } else {

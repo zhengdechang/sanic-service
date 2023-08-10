@@ -5,7 +5,7 @@ from sanic_jwt import protected, exceptions
 from utils.language_json import LANGUAGE_DATA
 
 
-def error_return(message, code="0001"):
+def error_return(message, code="204"):
     """
     Returns a JSON response with an error message and code.
 
@@ -34,7 +34,7 @@ def success_return(data=None, message=""):
             - msg (str): The message included in the response.
     """
     return json({
-        "code": "0000",
+        "code": "200",
         "data": {} if data is None else data,
         "msg": message
     })

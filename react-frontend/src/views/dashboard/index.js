@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSetting, useAccessStore } from '@/store'
 import { logout } from '@/services'
+import { message } from 'antd'
 
 function Dashboard() {
   const { t } = useTranslation()
@@ -17,6 +18,7 @@ function Dashboard() {
       <button
         onClick={() => {
           logout().then((res) => {
+            message.success('退出登录成功')
             updateToken('')
           })
           // updateLanguage(language == 'en' ? 'zh' : 'en')

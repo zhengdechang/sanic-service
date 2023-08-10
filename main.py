@@ -1,5 +1,6 @@
 import os
 import logging
+import json
 
 from sanic import Sanic
 from sanic_cors import CORS
@@ -12,7 +13,7 @@ from apis.sanic_service_apis import sanic_service_apis
 from model.engine import async_engine
 from model.models import meta, User
 from config import ProductionConfig
-from utils.utils import error_return, protect_if_authenticated, is_revoked
+from utils.utils import error_return, protect_if_authenticated, is_revoked,get_language_data
 
 from sanic_jwt import Initialize, exceptions
 
@@ -80,6 +81,18 @@ def create_app(config=None):
         :param response: The outgoing response.
         :return: None
         """
+        language = request.headers.get('Accept-Language') or 'zh'
+        # 中引文转义
+        if language == 'zh':
+            data = json.loads(response.body.decode('utf-8'))
+
+            data['msg'] = get_language_data(message=data['msg'],
+                                            language=language)
+
+            modified_response = json.dumps(data)
+
+            response.body = modified_response.encode('utf-8')
+
         if hasattr(request.ctx, "session_ctx_token"):
             _base_model_session_ctx.reset(request.ctx.session_ctx_token)
             await request.ctx.session.close()
