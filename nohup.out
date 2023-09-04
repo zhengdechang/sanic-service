@@ -1,0 +1,402 @@
+[2023-09-04 15:40:28 +0000] [76] [INFO] Stopping worker [76]
+[2023-09-04 15:40:28 +0000] [70] [INFO] Received signal SIGTERM. Shutting down.
+[2023-09-04 15:40:28 +0000] [70] [INFO] Server Stopped
+/usr/local/lib/python3.10/site-packages/sanic_jwt/configuration.py:134: DeprecationWarning: There is no current event loop
+  if asyncio.get_event_loop().is_running():
+[2023-09-04 15:40:52 +0000] [309] [INFO] Sanic v22.6.0
+[2023-09-04 15:40:52 +0000] [309] [INFO] Goin' Fast @ http://0.0.0.0:8000
+[2023-09-04 15:40:52 +0000] [309] [INFO] mode: production, w/ 4 workers
+[2023-09-04 15:40:52 +0000] [309] [INFO] server: sanic, HTTP/1.1
+[2023-09-04 15:40:52 +0000] [309] [INFO] python: 3.10.0
+[2023-09-04 15:40:52 +0000] [309] [INFO] platform: Linux-5.14.5-1.el7.elrepo.x86_64-x86_64-with-glibc2.31
+[2023-09-04 15:40:52 +0000] [309] [INFO] packages: sanic-routing==22.3.0
+Process ForkProcess-1:
+Process ForkProcess-2:
+Process ForkProcess-4:
+Process ForkProcess-3:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/lib/python3.10/site-packages/sanic/server/runners.py", line 106, in serve
+    return _serve_http_1(
+  File "/usr/local/lib/python3.10/site-packages/sanic/server/runners.py", line 264, in _serve_http_1
+    loop.run_until_complete(app._server_event("init", "after"))
+  File "uvloop/loop.pyx", line 1517, in uvloop.loop.Loop.run_until_complete
+  File "/usr/local/lib/python3.10/site-packages/sanic/app.py", line 1563, in _server_event
+    await self.dispatch(
+  File "/usr/local/lib/python3.10/site-packages/sanic/signals.py", line 193, in dispatch
+    return await dispatch
+  File "/usr/local/lib/python3.10/site-packages/sanic/signals.py", line 163, in _dispatch
+    retval = await maybe_coroutine
+  File "/usr/local/lib/python3.10/site-packages/sanic/app.py", line 1121, in _listener
+    await maybe_coro
+  File "/workspace/sanic-service/main.py", line 111, in init_db
+    async with async_engine.begin() as conn:
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/ext/asyncio/base.py", line 60, in __aenter__
+    return await self.start(is_ctxmanager=True)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/ext/asyncio/engine.py", line 596, in start
+    await self.conn.start(is_ctxmanager=is_ctxmanager)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/ext/asyncio/engine.py", line 155, in start
+    await (greenlet_spawn(self.sync_engine.connect))
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 126, in greenlet_spawn
+    result = context.throw(*sys.exc_info())
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/future/engine.py", line 406, in connect
+    return super(Engine, self).connect()
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 3234, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 3313, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 3280, in _wrap_pool_connect
+    return fn()
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/pool/base.py", line 310, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/pool/base.py", line 868, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/pool/base.py", line 476, in checkout
+    rec = pool._do_get()
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/pool/impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/pool/base.py", line 256, in _create_connection
+    return _ConnectionRecord(self)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/pool/base.py", line 371, in __init__
+    self.__connect()
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/pool/base.py", line 665, in __connect
+    with util.safe_reraise():
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/usr/local/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/usr/local/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/create.py", line 590, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/usr/local/lib/python3.10/site-packages/sanic/server/runners.py", line 106, in serve
+    return _serve_http_1(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 597, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/usr/local/lib/python3.10/site-packages/sanic/server/runners.py", line 264, in _serve_http_1
+    loop.run_until_complete(app._server_event("init", "after"))
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 777, in connect
+    await_only(self.asyncpg.connect(*arg, **kw)),
+  File "uvloop/loop.pyx", line 1517, in uvloop.loop.Loop.run_until_complete
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 68, in await_only
+    return current.driver.switch(awaitable)
+  File "/usr/local/lib/python3.10/site-packages/sanic/app.py", line 1563, in _server_event
+    await self.dispatch(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 121, in greenlet_spawn
+    value = await result
+  File "/usr/local/lib/python3.10/site-packages/sanic/signals.py", line 193, in dispatch
+    return await dispatch
+  File "/usr/local/lib/python3.10/site-packages/asyncpg/connection.py", line 2045, in connect
+    return await connect_utils._connect(
+  File "/usr/local/lib/python3.10/site-packages/sanic/signals.py", line 163, in _dispatch
+    retval = await maybe_coroutine
+  File "/usr/local/lib/python3.10/site-packages/asyncpg/connect_utils.py", line 790, in _connect
+    raise last_error
+  File "/usr/local/lib/python3.10/site-packages/asyncpg/connect_utils.py", line 776, in _connect
+    return await _connect_addr(
+  File "/usr/local/lib/python3.10/site-packages/sanic/app.py", line 1121, in _listener
+    await maybe_coro
+  File "/usr/local/lib/python3.10/site-packages/asyncpg/connect_utils.py", line 676, in _connect_addr
+    return await __connect_addr(params, timeout, True, *args)
+  File "/usr/local/lib/python3.10/site-packages/asyncpg/connect_utils.py", line 720, in __connect_addr
+    tr, pr = await compat.wait_for(connector, timeout=timeout)
+  File "/workspace/sanic-service/main.py", line 111, in init_db
+    async with async_engine.begin() as conn:
+  File "/usr/local/lib/python3.10/site-packages/asyncpg/compat.py", line 66, in wait_for
+    return await asyncio.wait_for(fut, timeout)
+  File "/usr/local/lib/python3.10/asyncio/tasks.py", line 447, in wait_for
+    return fut.result()
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/ext/asyncio/base.py", line 60, in __aenter__
+    return await self.start(is_ctxmanager=True)
+  File "/usr/local/lib/python3.10/site-packages/asyncpg/connect_utils.py", line 586, in _create_ssl_connection
+    tr, pr = await loop.create_connection(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/ext/asyncio/engine.py", line 596, in start
+    await self.conn.start(is_ctxmanager=is_ctxmanager)
+  File "uvloop/loop.pyx", line 2039, in create_connection
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/ext/asyncio/engine.py", line 155, in start
+    await (greenlet_spawn(self.sync_engine.connect))
+  File "uvloop/loop.pyx", line 2016, in uvloop.loop.Loop.create_connection
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 126, in greenlet_spawn
+    result = context.throw(*sys.exc_info())
+ConnectionRefusedError: [Errno 111] Connection refused
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/future/engine.py", line 406, in connect
+    return super(Engine, self).connect()
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 3234, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 3313, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 3280, in _wrap_pool_connect
+    return fn()
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/pool/base.py", line 310, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/pool/base.py", line 868, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/pool/base.py", line 476, in checkout
+    rec = pool._do_get()
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/pool/impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/pool/base.py", line 256, in _create_connection
+    return _ConnectionRecord(self)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/pool/base.py", line 371, in __init__
+    self.__connect()
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/pool/base.py", line 665, in __connect
+    with util.safe_reraise():
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/create.py", line 590, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 597, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 777, in connect
+    await_only(self.asyncpg.connect(*arg, **kw)),
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 68, in await_only
+    return current.driver.switch(awaitable)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 121, in greenlet_spawn
+    value = await result
+  File "/usr/local/lib/python3.10/site-packages/asyncpg/connection.py", line 2045, in connect
+    return await connect_utils._connect(
+  File "/usr/local/lib/python3.10/site-packages/asyncpg/connect_utils.py", line 790, in _connect
+    raise last_error
+  File "/usr/local/lib/python3.10/site-packages/asyncpg/connect_utils.py", line 776, in _connect
+    return await _connect_addr(
+  File "/usr/local/lib/python3.10/site-packages/asyncpg/connect_utils.py", line 676, in _connect_addr
+    return await __connect_addr(params, timeout, True, *args)
+  File "/usr/local/lib/python3.10/site-packages/asyncpg/connect_utils.py", line 720, in __connect_addr
+    tr, pr = await compat.wait_for(connector, timeout=timeout)
+  File "/usr/local/lib/python3.10/site-packages/asyncpg/compat.py", line 66, in wait_for
+    return await asyncio.wait_for(fut, timeout)
+  File "/usr/local/lib/python3.10/asyncio/tasks.py", line 447, in wait_for
+    return fut.result()
+  File "/usr/local/lib/python3.10/site-packages/asyncpg/connect_utils.py", line 586, in _create_ssl_connection
+    tr, pr = await loop.create_connection(
+  File "uvloop/loop.pyx", line 2039, in create_connection
+  File "uvloop/loop.pyx", line 2016, in uvloop.loop.Loop.create_connection
+ConnectionRefusedError: [Errno 111] Connection refused
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/lib/python3.10/site-packages/sanic/server/runners.py", line 106, in serve
+    return _serve_http_1(
+  File "/usr/local/lib/python3.10/site-packages/sanic/server/runners.py", line 264, in _serve_http_1
+    loop.run_until_complete(app._server_event("init", "after"))
+  File "uvloop/loop.pyx", line 1517, in uvloop.loop.Loop.run_until_complete
+  File "/usr/local/lib/python3.10/site-packages/sanic/app.py", line 1563, in _server_event
+    await self.dispatch(
+  File "/usr/local/lib/python3.10/site-packages/sanic/signals.py", line 193, in dispatch
+    return await dispatch
+  File "/usr/local/lib/python3.10/site-packages/sanic/signals.py", line 163, in _dispatch
+    retval = await maybe_coroutine
+  File "/usr/local/lib/python3.10/site-packages/sanic/app.py", line 1121, in _listener
+    await maybe_coro
+  File "/workspace/sanic-service/main.py", line 111, in init_db
+    async with async_engine.begin() as conn:
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/ext/asyncio/base.py", line 60, in __aenter__
+    return await self.start(is_ctxmanager=True)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/ext/asyncio/engine.py", line 596, in start
+    await self.conn.start(is_ctxmanager=is_ctxmanager)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/ext/asyncio/engine.py", line 155, in start
+    await (greenlet_spawn(self.sync_engine.connect))
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 126, in greenlet_spawn
+    result = context.throw(*sys.exc_info())
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/future/engine.py", line 406, in connect
+    return super(Engine, self).connect()
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 3234, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 3313, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 3280, in _wrap_pool_connect
+    return fn()
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/pool/base.py", line 310, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/pool/base.py", line 868, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/usr/local/lib/python3.10/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/pool/base.py", line 476, in checkout
+    rec = pool._do_get()
+  File "/usr/local/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/pool/impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "/usr/local/lib/python3.10/site-packages/sanic/server/runners.py", line 106, in serve
+    return _serve_http_1(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/usr/local/lib/python3.10/site-packages/sanic/server/runners.py", line 264, in _serve_http_1
+    loop.run_until_complete(app._server_event("init", "after"))
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+  File "uvloop/loop.pyx", line 1517, in uvloop.loop.Loop.run_until_complete
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/pool/base.py", line 256, in _create_connection
+    return _ConnectionRecord(self)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/pool/base.py", line 371, in __init__
+    self.__connect()
+  File "/usr/local/lib/python3.10/site-packages/sanic/app.py", line 1563, in _server_event
+    await self.dispatch(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/pool/base.py", line 665, in __connect
+    with util.safe_reraise():
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/usr/local/lib/python3.10/site-packages/sanic/signals.py", line 193, in dispatch
+    return await dispatch
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/usr/local/lib/python3.10/site-packages/sanic/signals.py", line 163, in _dispatch
+    retval = await maybe_coroutine
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/usr/local/lib/python3.10/site-packages/sanic/app.py", line 1121, in _listener
+    await maybe_coro
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/create.py", line 590, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/workspace/sanic-service/main.py", line 111, in init_db
+    async with async_engine.begin() as conn:
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 597, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/ext/asyncio/base.py", line 60, in __aenter__
+    return await self.start(is_ctxmanager=True)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 777, in connect
+    await_only(self.asyncpg.connect(*arg, **kw)),
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/ext/asyncio/engine.py", line 596, in start
+    await self.conn.start(is_ctxmanager=is_ctxmanager)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 68, in await_only
+    return current.driver.switch(awaitable)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 121, in greenlet_spawn
+    value = await result
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/ext/asyncio/engine.py", line 155, in start
+    await (greenlet_spawn(self.sync_engine.connect))
+  File "/usr/local/lib/python3.10/site-packages/asyncpg/connection.py", line 2045, in connect
+    return await connect_utils._connect(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 126, in greenlet_spawn
+    result = context.throw(*sys.exc_info())
+  File "/usr/local/lib/python3.10/site-packages/asyncpg/connect_utils.py", line 790, in _connect
+    raise last_error
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/future/engine.py", line 406, in connect
+    return super(Engine, self).connect()
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 3234, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+  File "/usr/local/lib/python3.10/site-packages/asyncpg/connect_utils.py", line 776, in _connect
+    return await _connect_addr(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+  File "/usr/local/lib/python3.10/site-packages/asyncpg/connect_utils.py", line 676, in _connect_addr
+    return await __connect_addr(params, timeout, True, *args)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 3313, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+  File "/usr/local/lib/python3.10/site-packages/asyncpg/connect_utils.py", line 720, in __connect_addr
+    tr, pr = await compat.wait_for(connector, timeout=timeout)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 3280, in _wrap_pool_connect
+    return fn()
+  File "/usr/local/lib/python3.10/site-packages/asyncpg/compat.py", line 66, in wait_for
+    return await asyncio.wait_for(fut, timeout)
+  File "/usr/local/lib/python3.10/asyncio/tasks.py", line 447, in wait_for
+    return fut.result()
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/pool/base.py", line 310, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/usr/local/lib/python3.10/site-packages/asyncpg/connect_utils.py", line 586, in _create_ssl_connection
+    tr, pr = await loop.create_connection(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/pool/base.py", line 868, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "uvloop/loop.pyx", line 2039, in create_connection
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/pool/base.py", line 476, in checkout
+    rec = pool._do_get()
+  File "uvloop/loop.pyx", line 2016, in uvloop.loop.Loop.create_connection
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/pool/impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+ConnectionRefusedError: [Errno 111] Connection refused
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/pool/base.py", line 256, in _create_connection
+    return _ConnectionRecord(self)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/pool/base.py", line 371, in __init__
+    self.__connect()
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/pool/base.py", line 665, in __connect
+    with util.safe_reraise():
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/create.py", line 590, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 597, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 777, in connect
+    await_only(self.asyncpg.connect(*arg, **kw)),
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 68, in await_only
+    return current.driver.switch(awaitable)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 121, in greenlet_spawn
+    value = await result
+  File "/usr/local/lib/python3.10/site-packages/asyncpg/connection.py", line 2045, in connect
+    return await connect_utils._connect(
+  File "/usr/local/lib/python3.10/site-packages/asyncpg/connect_utils.py", line 790, in _connect
+    raise last_error
+  File "/usr/local/lib/python3.10/site-packages/asyncpg/connect_utils.py", line 776, in _connect
+    return await _connect_addr(
+  File "/usr/local/lib/python3.10/site-packages/asyncpg/connect_utils.py", line 676, in _connect_addr
+    return await __connect_addr(params, timeout, True, *args)
+  File "/usr/local/lib/python3.10/site-packages/asyncpg/connect_utils.py", line 720, in __connect_addr
+    tr, pr = await compat.wait_for(connector, timeout=timeout)
+  File "/usr/local/lib/python3.10/site-packages/asyncpg/compat.py", line 66, in wait_for
+    return await asyncio.wait_for(fut, timeout)
+  File "/usr/local/lib/python3.10/asyncio/tasks.py", line 447, in wait_for
+    return fut.result()
+  File "/usr/local/lib/python3.10/site-packages/asyncpg/connect_utils.py", line 586, in _create_ssl_connection
+    tr, pr = await loop.create_connection(
+  File "uvloop/loop.pyx", line 2039, in create_connection
+  File "uvloop/loop.pyx", line 2016, in uvloop.loop.Loop.create_connection
+ConnectionRefusedError: [Errno 111] Connection refused
+[2023-09-04 15:40:53 +0000] [309] [INFO] Server Stopped
+/usr/local/lib/python3.10/site-packages/sanic_jwt/configuration.py:134: DeprecationWarning: There is no current event loop
+  if asyncio.get_event_loop().is_running():
+[2023-09-04 15:41:54 +0000] [336] [INFO] Sanic v22.6.0
+[2023-09-04 15:41:54 +0000] [336] [INFO] Goin' Fast @ http://0.0.0.0:8000
+[2023-09-04 15:41:54 +0000] [336] [INFO] mode: production, w/ 4 workers
+[2023-09-04 15:41:54 +0000] [336] [INFO] server: sanic, HTTP/1.1
+[2023-09-04 15:41:54 +0000] [336] [INFO] python: 3.10.0
+[2023-09-04 15:41:54 +0000] [336] [INFO] platform: Linux-5.14.5-1.el7.elrepo.x86_64-x86_64-with-glibc2.31
+[2023-09-04 15:41:54 +0000] [336] [INFO] packages: sanic-routing==22.3.0
+[2023-09-04 15:42:00 +0000] [340] [INFO] Starting worker [340]
+[2023-09-04 15:42:00 +0000] [339] [INFO] Starting worker [339]
+[2023-09-04 15:42:01 +0000] [341] [INFO] Starting worker [341]
+[2023-09-04 15:42:01 +0000] [342] [INFO] Starting worker [342]

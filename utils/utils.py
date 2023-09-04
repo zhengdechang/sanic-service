@@ -66,11 +66,11 @@ def protect_if_authenticated(JWT_WHITE_LIST=[]):
     def inner_decorator(func):
 
         async def wrapper(*args, **kwargs):
-            if "login" in args[0].name:
+            if "login" in args[0].path:
                 return await func(*args, **kwargs)
             else:
                 for item in JWT_WHITE_LIST:
-                    if item in args[0].name:
+                    if item in args[0].path:
                         return await func(*args, **kwargs)
                 return await protected()(func)(*args, **kwargs)
 
@@ -109,10 +109,10 @@ def is_revoked(request, JWT_WHITE_LIST=[]):
 
     Finally, if none of the above conditions are met, the function returns True.
     """
-    if "login" in request.name:
+    if "login" in request.path:
         return True
     for item in JWT_WHITE_LIST:
-        if item in request.name:
+        if item in request.path:
             return True
     token = request.headers.get("Authorization").split(" ")[1]
     if token in request.app.config.SANIC_JWT_BLACKLIST:
