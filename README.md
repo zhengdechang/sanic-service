@@ -1,5 +1,7 @@
 ## Python Sanic with React Frontend
 
+在线体验：[https://sanic-service-zhengdevin11-gmailcom.vercel.app/](https://sanic-service-zhengdevin11-gmailcom.vercel.app/#/login?redirect=/)
+
 这个项目是一个全栈应用程序，由Python的Sanic框架创建的后端和React, Antd, Zustand创建的前端组成。
 
 后端使用Sanic框架，这是一个Python 3.6+ web服务器和web框架，它允许快速写代码，同时能处理请求速度非常快。它允许使用异步请求处理，这意味着你可以使用Python的async/await语法处理请求，这使得它非常适合实时web应用。后端还使用了PostgreSQL作为数据库，为应用程序提供了强大的数据存储和检索功能。
