@@ -1,6 +1,6 @@
 import Request from '../utils/request'
 
-const request = Request('https://866ec7b2-8000-app.lightly.teamcode.com/api')
+const request = Request('/api')
 
 export function login(loginInfo) {
   return request({
