@@ -1,0 +1,5 @@
+export POSTGRESQL_USER=qfnfnduq
+export POSTGRESQL_PASSWORD=MskNaTxc0QoCKIl4ZsmVJ_00oIADmgit
+export POSTGRESQL_HOST=trumpet.db.elephantsql.com
+export POSTGRESQL_PORT=5432
+export POSTGRESQL_DATABASE=qfnfndu

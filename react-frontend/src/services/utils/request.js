@@ -36,6 +36,11 @@ function Request(baseURL) {
         config.headers['Authorization'] = `Bearer ${token}`
       }
       config.headers['Accept-Language'] = localStorage.getItem('language') ?? 'zh'
+      config.params = {
+        port: 8000,
+        dcsId: '866ec7b2',
+        token: 'vTzV-TmTTySXrbK64WwTTQ'
+      }
       return config
     },
     (error) => {
