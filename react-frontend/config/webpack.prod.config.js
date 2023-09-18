@@ -54,7 +54,6 @@ module.exports = merge(common, {
       // 我的理解是无论与要用的 template 是不是在一个目录，都是从根路径开始查找
       template: 'public/index.html',
       inject: 'body',
-      favicon: path.resolve('public/favicon.ico'),
       minify: {
         removeComments: true,
         collapseWhitespace: true,
